@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { StateProvider } from './contexts/ContextPrimary';
 
-export default App;
+import Header from  './components/Header';
+import Calculadora from './components/Calculadora';
+import HistoricoContas from './components/HistoricoContas';
+
+const Main = () => {
+    return(
+      <StateProvider>
+        <div className="container">
+        <div className="div-header">
+        <Header />
+        </div>
+            
+          <main>
+          <div class="wrap">
+          <div class="box">
+          <Calculadora />
+          </div>
+         
+          <div class="box">
+          <HistoricoContas />
+          </div>
+            
+          </div>
+            
+          </main>
+        </div>
+      </StateProvider>
+    );
+}
+export default Main;
